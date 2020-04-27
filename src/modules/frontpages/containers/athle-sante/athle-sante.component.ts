@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -15,22 +16,36 @@ export class AthleSanteComponent implements OnInit {
     athlesanteForm: FormGroup;
     athles = new athlesante();
     json: any;
-    constructor(private athlesanteService1: athlesanteService, private router: Router) {}
+    // @ts-ignore
+    selectedFile: File = null;
+    constructor(
+        private athlesanteService1: athlesanteService,
+        private router: Router,
+        private http: HttpClient
+    ) {}
 
     ngOnInit() {
         this.athlesanteForm = new FormGroup({
             id: new FormControl(null, Validators.required),
             description: new FormControl(null, Validators.required),
             programme: new FormControl(null, Validators.required),
-            information: new FormControl(null, Validators.required),
         });
         this.athles.id = 0;
         this.athlesanteForm.setValue({
             id: this.athles.id,
             description: this.athles.description,
             programme: this.athles.programme,
-            information: this.athles.information,
         });
+    }
+    onFileSelected({ event }: { event: any }) {
+        this.selectedFile = event.target.files[0] as File;
+    }
+    onUpload() {
+        const fd = new FormData();
+        fd.append('file', this.selectedFile, this.selectedFile.name);
+       /* this.http.post('', fd).subscribe(res => {
+            console.log(res);
+        });*/
     }
     onSubmit() {
         this.json = JSON.stringify(this.athlesanteForm.value);

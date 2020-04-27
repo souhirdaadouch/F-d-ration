@@ -1,32 +1,20 @@
-<div class="card">
-    <div class="card-body -align-center">
-        <h4 class="card-header text-center font-weight-bold text-uppercase py-4">Mise à jour Athlé_santé</h4>
-        <div *ngIf="errorMessage" class="alert alert-danger">
-            {{errorMessage}}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <div class="card-header"><h3 class="text-center font-weight-light my-4">Ajouter une actualité</h3></div>
+                <div class="card-body">
+                    <form [formGroup]="actuForm" class="form-theme">
+                        <div class="form-group">
+                            <label class="small mb-1" for="file">Upload fichier</label>
+                            <input required id="file" type="file" formControlName="file" class="form-control"
+                                   (change)="onFileSelected({event : $event})">
+                        </div>
+                        <button class="btn btn-primary" (click)="onUpload()">Envoyer</button>
+                    </form>
+                </div>
+            </div>
         </div>
-        <form [formGroup]="actuForm" class="form-theme" (ngSubmit)="onSubmit()">
-
-            <label for="eventId">ID</label>
-            <input required id="eventId" type="text" formControlName="eventId" class="form-control">
-
-            <label for="eventTitle">Programme</label>
-            <input required id="eventTitle" type="text" formControlName="eventTitle" class="form-control">
-
-            <label for="eventDate">Relation Sport-Santé</label>
-            <input required id="eventDate" type="date" formControlName="eventDate" class="form-control">
-
-            <label for="eventComments">Programme</label>
-            <input required id="eventComments" type="text" formControlName="eventComments" class="form-control">
-
-            <label for="eventImgPath">Programme</label>
-            <input required id="eventImgPath" type="text" formControlName="eventImgPath" class="form-control">
-
-            <label for="eventDescrip">Programme</label>
-            <input required id="eventDescrip" type="text" formControlName="eventDescrip" class="form-control">
-
-            <button [disabled]="!actuForm.valid" class="btn btn-primary">Envoyer</button>
-
-        </form>
     </div>
 </div>
 

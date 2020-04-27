@@ -1,39 +1,36 @@
-<div class="card">
-    <div class="card-body -align-center">
-        <h4 class="card-header text-center font-weight-bold text-uppercase py-4">Mise à jour Formations</h4>
-        <div *ngIf="errorMessage" class="alert alert-danger">
-            {{errorMessage}}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <div class="card-header"><h3 class="text-center font-weight-light my-4">Ajouter un document</h3>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="formationForm" class="form-theme">
+
+                        <label for="idformation">Titre Formation</label>
+                        <input required id="idformation" type="number" formControlName="idformation"
+                               class="form-control">
+
+                        <label for="periode">Periode</label>
+                        <input required id="periode" type="text" formControlName="periode" class="form-control">
+
+                        <label for="pathcomformation">Communiquée de fomartion</label>
+                        <input required id="pathcomformation" type="file" formControlName="pathcomformation" class="form-control"
+                               (change)="onFileSelected({event : $event})">
+
+                        <label for="file">Upload liste participant</label>
+                        <input required id="file" type="file" formControlName="file" class="form-control"
+                               (change)="onFileSelected({event : $event})">
+                        <br>
+                        <button class="btn btn-primary" (click)="onUpload()">Envoyer</button>
+
+
+
+                    </form>
+                </div>
+            </div>
+
+
         </div>
-        <form [formGroup]="formationForm" class="form-theme" (ngSubmit)="onSubmit()">
-
-            <label for="idformation">ID</label>
-            <input required id="idformation" type="number" formControlName="idformation" class="form-control">
-
-            <label for="activite">Activité</label>
-            <input required id="activite" type="text" formControlName="activite" class="form-control">
-
-            <label for="eventDate">Nature d'activité</label>
-            <input required id="eventDate" type="text" formControlName="eventDate" class="form-control">
-
-            <label for="periode">Periode</label>
-            <input required id="periode" type="text" formControlName="periode" class="form-control">
-
-            <label for="lieu">Lieu</label>
-            <input required id="lieu" type="text" formControlName="lieu" class="form-control">
-
-            <label for="organisme">Organisme</label>
-            <input required id="organisme" type="text" formControlName="organisme" class="form-control">
-
-            <label for="nbrparticipants">Nombres participants</label>
-            <input required id="nbrparticipants" type="text" formControlName="nbrparticipants" class="form-control">
-
-            <label for="pathcomformation">Communiquée de fomartion</label>
-            <input required id="pathcomformation" formControlName="pathcomformation" class="form-control"type="file" (change)="onFileChange($event)" />
-
-            <button [disabled]="!formationForm.valid" class="btn btn-primary">Envoyer</button>
-
-        </form>
     </div>
 </div>
-
-

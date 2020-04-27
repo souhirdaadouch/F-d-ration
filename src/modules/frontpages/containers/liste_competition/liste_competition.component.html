@@ -1,23 +1,29 @@
-<div class="card">
-    <div class="card-body -align-center">
-        <h4 class="card-header text-center font-weight-bold text-uppercase py-4">Mise à jour Calendriers</h4>
-        <div *ngIf="errorMessage" class="alert alert-danger">
-            {{errorMessage}}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-5">
+            <div class="card shadow-lg border-0 rounded-lg mt-5">
+                <div class="card-header"><h3 class="text-center font-weight-light my-4">Ajouter une compétition</h3>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="compForm" class="form-theme" (ngSubmit)="onSubmit()">
+
+                        <label for="idcompetition">ID</label>
+                        <input required id="idcompetition" type="number" formControlName="idcompetition"
+                               class="form-control">
+
+                        <label for="nom">Nom Compétition</label>
+                        <input required id="nom" type="text" formControlName="nom" class="form-control">
+
+                        <label for="organisateur">Organisateur</label>
+                        <input required id="organisateur" type="date" formControlName="organisateur"
+                               class="form-control">
+
+                        <button [disabled]="!compForm.valid" class="btn btn-primary">Envoyer</button>
+
+                    </form>
+                </div>
+            </div>
+
         </div>
-        <form [formGroup]="compForm" class="form-theme" (ngSubmit)="onSubmit()">
-
-            <label for="idcompetition">ID</label>
-            <input required id="idcompetition" type="number" formControlName="idcompetition" class="form-control">
-
-            <label for="nom">Nom Compétition</label>
-            <input required id="nom" type="text" formControlName="nom" class="form-control">
-
-            <label for="organisateur">Organisateur</label>
-            <input required id="organisateur" type="date" formControlName="organisateur" class="form-control">
-
-            <button [disabled]="!compForm.valid" class="btn btn-primary">Envoyer</button>
-
-        </form>
     </div>
 </div>
-

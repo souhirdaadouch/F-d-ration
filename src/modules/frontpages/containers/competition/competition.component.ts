@@ -1,21 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
-import { CategorieService } from '@modules/frontpages/services/categorie.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
-    selector: 'sb-categorie',
-    templateUrl: './categorie.component.html',
-    styleUrls: ['./categorie.component.scss'],
+  selector: 'sb-competition',
+  templateUrl: './competition.component.html',
+  styleUrls: ['./competition.component.scss']
 })
-export class CategorieComponent implements OnInit {
+export class CompetitionComponent implements OnInit {
+
+    errorMessage = '';
     // @ts-ignore
-    catForm: FormGroup;
+    compForm: FormGroup;
     // @ts-ignore
     selectedFile: File = null;
-    constructor() {}
+    constructor() {
+    }
+    ngOnInit(): void {
+    }
 
-    ngOnInit() {}
     onFileSelected({ event }: { event: any }) {
         this.selectedFile = event.target.files[0] as File;
     }
@@ -26,4 +28,5 @@ export class CategorieComponent implements OnInit {
              console.log(res);
          });*/
     }
+
 }

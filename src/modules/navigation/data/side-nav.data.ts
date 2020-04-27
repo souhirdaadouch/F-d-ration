@@ -77,16 +77,8 @@ export const sideNavItems: SideNavItems = {
                 text: 'MAJ_Pages',
                 submenu: [
                     {
-                        text: 'Home',
-                        link: '/frontpages/home',
-                    },
-                    {
                         text: 'FTA',
                         submenu: [
-                            {
-                                text: 'Présentation',
-                                link: '/frontpages/presentation',
-                            },
                             {
                                 text: 'Commission Fédérale',
                                 link: '/frontpages/commissionfed',
@@ -117,40 +109,32 @@ export const sideNavItems: SideNavItems = {
                         text: 'competition',
                         submenu: [
                             {
-                                text: 'liste competitions',
-                                link: 'frontpages/competition/liste_competition',
+                                text: 'Liste des compétitions',
+                                link: '/frontpages/liste_competition',
                             },
                             {
-                                text: 'liste_championnat',
-                                link: 'frontpages/competition/liste_championnat',
+                                text: 'Ajouter Compétition',
+                                link: '/frontpages/competition',
                             },
                             {
-                                text: 'calendrier',
-                                link: 'frontpages/competition/calendrier',
+                                text: 'Calendrier',
+                                link: '/frontpages/calendrier',
                             },
                             {
-                                text: 'calendriermasters',
-                                link: 'frontpages/competition/calendriermasters',
+                                text: 'Catégorie',
+                                link: '/frontpages/categorie',
                             },
                             {
-                                text: 'categorie',
-                                link: 'frontpages/competition/categorie',
+                                text: 'Masters',
+                                link: '/frontpages/masters',
                             },
                             {
-                                text: 'courseRoute',
-                                link: 'frontpages/competition/courseRoute',
+                                text: 'Records',
+                                link: '/frontpages/records',
                             },
                             {
-                                text: 'masters',
-                                link: 'frontpages/competition/masters',
-                            },
-                            {
-                                text: 'records',
-                                link: 'frontpages/competition/records',
-                            },
-                            {
-                                text: 'resultat',
-                                link: 'frontpages/competition/resultat',
+                                text: 'Resultat',
+                                link: '/frontpages/resultat',
                             },
                         ],
                     },
@@ -163,16 +147,24 @@ export const sideNavItems: SideNavItems = {
                         link: '/frontpages/formation',
                     },
                     {
-                        text: 'actualite',
+                        text: 'Actualite',
                         link: '/frontpages/actualite',
                     },
                     {
-                        text: 'athle-sante',
+                        text: 'Athle-sante',
                         link: '/frontpages/athle-sante',
                     },
                     {
-                        text: 'Athlete',
+                        text: 'Ajout Athléte',
                         link: '/frontpages/athlete',
+                    },
+                    {
+                        text: 'Modification Athlete',
+                        link: '/frontpages/athlemodif',
+                    },
+                    {
+                        text: 'Galerie',
+                        link: '/frontpages/galerie',
                     },
                 ],
             },

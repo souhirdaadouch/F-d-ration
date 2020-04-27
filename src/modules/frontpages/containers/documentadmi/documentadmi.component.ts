@@ -16,6 +16,8 @@ export class DocumentComponent implements OnInit {
     // @ts-ignore
     docForm: FormGroup;
     doc = new document();
+    // @ts-ignore
+    selectedFile: File = null;
     json: any;
     constructor(private documentService1: DocumentService, private router: Router) {}
 
@@ -57,22 +59,14 @@ export class DocumentComponent implements OnInit {
             }
         );*/
     }
-    /*onFileChange(event) {
-        const reader = new FileReader();
-
-        if(event.target.files && event.target.files.length) {
-            const [file] = event.target.files;
-            reader.readAsDataURL(file);
-
-            reader.onload = () => {
-                this.formulaire.patchValue({
-                    // tslint:disable-next-line:prettier
-                    file: reader.result;
-                });
-
-                // need to run CD since file load runs outside of zone
-                this.cd.markForCheck();
-            };
-        }
-    }*/
+    onFileSelected({ event }: { event: any }) {
+        this.selectedFile = event.target.files[0] as File;
+    }
+    onUpload() {
+        const fd = new FormData();
+        fd.append('file', this.selectedFile, this.selectedFile.name);
+        /* this.http.post('', fd).subscribe(res => {
+             console.log(res);
+         });*/
+    }
 }

@@ -15,6 +15,8 @@ export class MastersComponent implements OnInit {
     masterForm: FormGroup;
     master = new masters();
     json: any;
+    // @ts-ignore
+    selectedFile: File = null;
     constructor(private mastersService1: MastersService, private router: Router) {}
 
     ngOnInit() {
@@ -44,18 +46,14 @@ export class MastersComponent implements OnInit {
         //     });
         this.masterForm.reset();
     }
-
-    /*
-     addmasters(formulaire: NgForm) {
-        /*this.mastersService1.addmasters(formulaire.value).subscribe(
-            reponse => {
-                const link = ['ath'];
-                this.router.navigate(link);
-            },
-            error => {
-                this.errorMessage = 'Problème de connexion à votre serveur';
-                console.log(error);
-            }
-        );
-    }*/
+    onFileSelected({ event }: { event: any }) {
+        this.selectedFile = event.target.files[0] as File;
+    }
+    onUpload() {
+        const fd = new FormData();
+        fd.append('file', this.selectedFile, this.selectedFile.name);
+        /* this.http.post('', fd).subscribe(res => {
+             console.log(res);
+         });*/
+    }
 }

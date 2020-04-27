@@ -16,6 +16,8 @@ export class ResultatComponent implements OnInit {
     // @ts-ignore
     res = new resultat();
     json: any;
+    // @ts-ignore
+    selectedFile: File = null;
     constructor(private resultatService1: ResultatService, private router: Router) {}
     ngOnInit() {
         this.resultatForm = new FormGroup({
@@ -30,6 +32,16 @@ export class ResultatComponent implements OnInit {
             date: this.res.date,
             lieu: this.res.lieu,
         });
+    }
+    onFileSelected({ event }: { event: any }) {
+        this.selectedFile = event.target.files[0] as File;
+    }
+    onUpload() {
+        const fd = new FormData();
+        fd.append('file', this.selectedFile, this.selectedFile.name);
+        /* this.http.post('', fd).subscribe(res => {
+             console.log(res);
+         });*/
     }
     onSubmit() {
         this.json = JSON.stringify(this.resultatForm.value);

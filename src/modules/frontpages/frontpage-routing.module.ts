@@ -19,11 +19,11 @@ export const ROUTES: Routes = [
         redirectTo: 'home',
     },
     {
-        path: 'home',
+        path: 'calendrier',
         canActivate: [],
-        component: frontpagesContainers.HomeComponent,
+        component: frontpagesContainers.CalendrierComponent,
         data: {
-            title: 'home - SB Admin Angular',
+            title: 'FTA - SB Admin Angular',
         } as SBRouteData,
     },
     {
@@ -43,6 +43,14 @@ export const ROUTES: Routes = [
         } as SBRouteData,
     },
     {
+        path: 'galerie',
+        canActivate: [],
+        component: frontpagesContainers.GalerieComponent,
+        data: {
+            title: 'Formation - SB Admin Angular',
+        } as SBRouteData,
+    },
+    {
         path: 'actualite',
         canActivate: [],
         component: frontpagesContainers.ActualiteComponent,
@@ -54,14 +62,6 @@ export const ROUTES: Routes = [
         path: 'athle-sante',
         canActivate: [],
         component: frontpagesContainers.AthleSanteComponent,
-        data: {
-            title: 'Athlé-Santé - SB Admin Angular',
-        } as SBRouteData,
-    },
-    {
-        path: 'presentation',
-        canActivate: [],
-        component: frontpagesContainers.PresentationComponent,
         data: {
             title: 'Athlé-Santé - SB Admin Angular',
         } as SBRouteData,
@@ -123,41 +123,17 @@ export const ROUTES: Routes = [
         } as SBRouteData,
     },
     {
-        path: 'liste_championnat',
+        path: 'competition',
         canActivate: [],
-        component: frontpagesContainers.ListechampionnatComponent,
+        component: frontpagesContainers.CompetitionComponent,
         data: {
             title: 'FTA - SB Admin Angular',
-        } as SBRouteData,
-    },
-    {
-        path: 'calendrier',
-        canActivate: [],
-        component: frontpagesContainers.CalendrierComponent,
-        data: {
-            title: 'COMPETITIONS - SB Admin Angular',
-        } as SBRouteData,
-    },
-    {
-        path: 'calendriermasters',
-        canActivate: [],
-        component: frontpagesContainers.CalendriermastersComponent,
-        data: {
-            title: ' - SB Admin Angular',
         } as SBRouteData,
     },
     {
         path: 'categorie',
         canActivate: [],
         component: frontpagesContainers.CategorieComponent,
-        data: {
-            title: ' - SB Admin Angular',
-        } as SBRouteData,
-    },
-    {
-        path: 'courseRoute',
-        canActivate: [],
-        component: frontpagesContainers.CourseRouteComponent,
         data: {
             title: ' - SB Admin Angular',
         } as SBRouteData,
@@ -190,6 +166,14 @@ export const ROUTES: Routes = [
         path: 'athlete',
         canActivate: [],
         component: frontpagesContainers.AthleteComponent,
+        data: {
+            title: 'Athlétes - SB Admin Angular',
+        } as SBRouteData,
+    },
+    {
+        path: 'athlemodif',
+        canActivate: [],
+        component: frontpagesContainers.AthletemodifComponent,
         data: {
             title: 'Athlétes - SB Admin Angular',
         } as SBRouteData,

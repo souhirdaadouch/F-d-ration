@@ -16,6 +16,8 @@ export class RecordsComponent implements OnInit {
     // @ts-ignore
     rec = new record();
     json: any;
+    // @ts-ignore
+    selectedFile: File = null;
     constructor(private recordService1: RecordService, private router: Router) {}
 
     ngOnInit() {
@@ -39,6 +41,16 @@ export class RecordsComponent implements OnInit {
             categorie: this.rec.categorie,
             idcompetition: this.rec.idcompetition,
         });
+    }
+    onFileSelected({ event }: { event: any }) {
+        this.selectedFile = event.target.files[0] as File;
+    }
+    onUpload() {
+        const fd = new FormData();
+        fd.append('file', this.selectedFile, this.selectedFile.name);
+        /* this.http.post('', fd).subscribe(res => {
+             console.log(res);
+         });*/
     }
     onSubmit() {
         this.json = JSON.stringify(this.recordForm.value);

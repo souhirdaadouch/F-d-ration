@@ -20,7 +20,7 @@ export class Performance {
 }
 
 export class athlete {
-    id: number;
+    id: string;
     nom: string;
     prenom: string;
     sexe: string;
@@ -45,7 +45,7 @@ export class athlete {
     PathPerformanceCopiePDF: string;
 
     constructor(
-        id = 0,
+        id = '',
         nom = '',
         prenom = '',
         email = '',

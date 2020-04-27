@@ -7,7 +7,6 @@ import { CalendriercourseRService } from '@modules/frontpages/services/calendrie
 import { CalendriermasService } from '@modules/frontpages/services/calendriermas.service';
 import { CategorieService } from '@modules/frontpages/services/categorie.service';
 import { CentreformationService } from '@modules/frontpages/services/centreformation.service';
-import { ChampionnatService } from '@modules/frontpages/services/championnat.service';
 import { ClubService } from '@modules/frontpages/services/club.service';
 import { CommissionfedService } from '@modules/frontpages/services/commissionfed.service';
 import { CompetitionsService } from '@modules/frontpages/services/competitions.service';
@@ -16,16 +15,15 @@ import { formationService } from '@modules/frontpages/services/formation.service
 import { FrontpagesService } from '@modules/frontpages/services/frontpages.service';
 import { LigueService } from '@modules/frontpages/services/ligue.service';
 import { MastersService } from '@modules/frontpages/services/masters.service';
-import { PresentationService } from '@modules/frontpages/services/presentation.service';
 import { RecordService } from '@modules/frontpages/services/record.service';
 import { ResultatService } from '@modules/frontpages/services/resultat.service';
+import { GalerieService } from '@modules/frontpages/services/Galerie.service';
 
 export const services = [
     FrontpagesService,
     athlesanteService,
     actualiteService,
     formationService,
-    PresentationService,
     CommissionfedService,
     BureaufedService,
     LigueService,
@@ -36,8 +34,8 @@ export const services = [
     CalendriermasService,
     CategorieService,
     CalendriercourseRService,
-    ChampionnatService,
     CompetitionsService,
+    GalerieService,
     MastersService,
     RecordService,
     ResultatService,
@@ -48,7 +46,6 @@ export * from './frontpages.service';
 export * from './actualite.service';
 export * from './athlesante.service';
 export * from './formation.service';
-export * from './presentation.service';
 export * from './commissionfed.service';
 export * from './bureaufed.service';
 export * from './ligue.service';
@@ -59,9 +56,9 @@ export * from './calendrier.service';
 export * from './calendriermas.service';
 export * from './categorie.service';
 export * from './calendriercourseR.service';
-export * from './championnat.service';
 export * from './competitions.service';
 export * from './masters.service';
 export * from './record.service';
 export * from './resultat.service';
 export * from './athlete.service';
+export * from './Galerie.service';
