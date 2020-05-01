@@ -109,7 +109,7 @@ export const sideNavItems: SideNavItems = {
                         text: 'competition',
                         submenu: [
                             {
-                                text: 'Liste des compétitions',
+                                text: 'Session de compétition',
                                 link: '/frontpages/liste_competition',
                             },
                             {

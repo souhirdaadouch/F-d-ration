@@ -17,6 +17,7 @@ export class FormationsComponent implements OnInit {
     formationForm: FormGroup;
     // @ts-ignore
     selectedFile: File = null;
+    json: any;
     constructor() {
     }
     ngOnInit(): void {
@@ -32,22 +33,17 @@ export class FormationsComponent implements OnInit {
              console.log(res);
          });*/
     }
-    /*onFileChange(event) {
-        const reader = new FileReader();
-
-        if(event.target.files && event.target.files.length) {
-            const [file] = event.target.files;
-            reader.readAsDataURL(file);
-
-            reader.onload = () => {
-                this.formulaire.patchValue({
-                    // tslint:disable-next-line:prettier
-                    file: reader.result;
-                });
-
-                // need to run CD since file load runs outside of zone
-                this.cd.markForCheck();
-            };
-        }
-    }*/
+    onSubmit() {
+        this.json = JSON.stringify(this.formationForm.value);
+        console.log(this.json);
+        // this.http.put('http://localhost:3000/api/athlete/' +  this.athle.id, this.json, {
+        //     headers: new HttpHeaders({
+        //         'Content-Type': 'application/json'
+        //     })
+        // })
+        //     .subscribe(responseData => {
+        //         console.log(responseData);
+        //     });
+        this.formationForm.reset();
+    }
 }

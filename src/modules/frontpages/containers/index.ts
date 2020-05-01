@@ -19,6 +19,9 @@ import { RecordsComponent } from '@modules/frontpages/containers/records/records
 import { ResultatComponent } from '@modules/frontpages/containers/resultat/resultat.component';
 import { TestComponent } from '@modules/frontpages/containers/test/test.component';
 import { GalerieComponent } from '@modules/frontpages/containers/galerie/galerie.component';
+import { MinimasComponent } from '@modules/frontpages/containers/minimas/minimas.component';
+import { UploadrecordComponent } from '@modules/frontpages/containers/uploadrecord/uploadrecord.component';
+import { UploadresultComponent } from '@modules/frontpages/containers/uploadresult/uploadresult.component';
 
 export const containers = [
     ActualiteComponent,
@@ -42,6 +45,9 @@ export const containers = [
     CompetitionComponent,
     AthletemodifComponent,
     GalerieComponent,
+    MinimasComponent,
+    UploadrecordComponent,
+    UploadresultComponent,
 ];
 
 export * from './actualite/actualite.component';
@@ -65,3 +71,6 @@ export * from './test/test.component';
 export * from './competition/competition.component';
 export * from './athletemodif/athletemodif.component';
 export * from './galerie/galerie.component';
+export * from './minimas/minimas.component';
+export * from './uploadrecord/uploadrecord.component';
+export * from './uploadresult/uploadresult.component';

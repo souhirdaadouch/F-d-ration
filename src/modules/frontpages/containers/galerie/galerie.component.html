@@ -7,6 +7,11 @@
                             <div class="form-row" *ngFor="let obj of dataarray; let i=index">
 
                                 <div class="form-group col-md-4">
+                                    <label>Nom compétition</label>
+                                    <input type="text" class="form-control" name="nomcomp">
+                                </div>
+
+                                <div class="form-group col-md-4">
                                     <label>Upload Image</label>
                                     <input type="file" class="form-control" name="imag{{i}}" [(ngModel)]="obj.imag">
 

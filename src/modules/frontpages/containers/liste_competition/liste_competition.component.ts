@@ -15,6 +15,8 @@ export class ListecompetitionComponent implements OnInit {
     compForm: FormGroup;
     competition = new competitions();
     json: any;
+    // @ts-ignore
+    selectedFile: File = null;
     constructor(private listecompetitionService1: CompetitionsService, private router: Router) {}
 
     ngOnInit() {
@@ -41,6 +43,16 @@ export class ListecompetitionComponent implements OnInit {
         //         console.log(responseData);
         //     });
         this.compForm.reset();
+    }
+    onFileSelected({ event }: { event: any }) {
+        this.selectedFile = event.target.files[0] as File;
+    }
+    onUpload() {
+        const fd = new FormData();
+        fd.append('file', this.selectedFile, this.selectedFile.name);
+        /* this.http.post('', fd).subscribe(res => {
+             console.log(res);
+         });*/
     }
     /*
      addcompetition(formulaire: NgForm) {

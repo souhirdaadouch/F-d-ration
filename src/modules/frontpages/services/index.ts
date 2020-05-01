@@ -3,7 +3,6 @@ import { athlesanteService } from '@modules/frontpages/services/athlesante.servi
 import { AthleteService } from '@modules/frontpages/services/athlete.service';
 import { BureaufedService } from '@modules/frontpages/services/bureaufed.service';
 import { CalendrierService } from '@modules/frontpages/services/calendrier.service';
-import { CalendriercourseRService } from '@modules/frontpages/services/calendriercourseR.service';
 import { CalendriermasService } from '@modules/frontpages/services/calendriermas.service';
 import { CategorieService } from '@modules/frontpages/services/categorie.service';
 import { CentreformationService } from '@modules/frontpages/services/centreformation.service';
@@ -33,7 +32,6 @@ export const services = [
     CalendrierService,
     CalendriermasService,
     CategorieService,
-    CalendriercourseRService,
     CompetitionsService,
     GalerieService,
     MastersService,
@@ -55,7 +53,6 @@ export * from './document.service';
 export * from './calendrier.service';
 export * from './calendriermas.service';
 export * from './categorie.service';
-export * from './calendriercourseR.service';
 export * from './competitions.service';
 export * from './masters.service';
 export * from './record.service';
