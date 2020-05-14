@@ -59,6 +59,14 @@ export const ROUTES: Routes = [
         } as SBRouteData,
     },
     {
+        path: 'minimas',
+        canActivate: [],
+        component: frontpagesContainers.MinimasComponent,
+        data: {
+            title: 'ACTUALITE - SB Admin Angular',
+        } as SBRouteData,
+    },
+    {
         path: 'athle-sante',
         canActivate: [],
         component: frontpagesContainers.AthleSanteComponent,
