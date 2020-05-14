@@ -26,14 +26,15 @@ export class ActualiteComponent implements OnInit {
     ngOnInit(): void {
         this.actuForm = new FormGroup({
             'file': new FormControl(null, {validators: [Validators.required]})
-        })
+        });
     }
 
     onFileSelected({event}: { event: any }) {
         this.selectedFile = event.target.files[0] as File;
         this.actuForm.patchValue({file: this.selectedFile});
         if (this.actuForm.get('file') !== null){
-        this.actuForm.get('file').updateValueAndValidity();
+        // @ts-ignore
+            this.actuForm.get('file').updateValueAndValidity();
     }
     }
 
