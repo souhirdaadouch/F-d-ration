@@ -9,7 +9,6 @@ import { DomSanitizer } from '@angular/platform-browser';
     styleUrls: ['./competition.component.scss']
 })
 export class CompetitionComponent implements OnInit {
-
     errorMessage = '';
     // @ts-ignore
     compForm: FormGroup;
@@ -35,7 +34,5 @@ export class CompetitionComponent implements OnInit {
                 console.log(res);
                 location.reload();
             });
-
     }
-
 }

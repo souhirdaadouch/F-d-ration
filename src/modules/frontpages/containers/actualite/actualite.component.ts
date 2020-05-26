@@ -35,6 +35,7 @@ export class ActualiteComponent implements OnInit {
     //     if (this.actuForm.get('file') !== null){
     //     this.actuForm.get('file').updateValueAndValidity();
     // }
+
     }
 
     onUpload() {

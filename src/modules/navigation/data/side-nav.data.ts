@@ -125,6 +125,10 @@ export const sideNavItems: SideNavItems = {
                                 link: '/frontpages/categorie',
                             },
                             {
+                                text: 'Minimas',
+                                link: '/frontpages/minimas',
+                            },
+                            {
                                 text: 'Masters',
                                 link: '/frontpages/masters',
                             },

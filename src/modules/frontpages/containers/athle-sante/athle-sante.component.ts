@@ -29,6 +29,7 @@ export class AthleSanteComponent implements OnInit {
             id: new FormControl(null, Validators.required),
             description: new FormControl(null, Validators.required),
             programme: new FormControl(null, Validators.required),
+            file: new FormControl(null, { validators: [Validators.required] }),
         });
         this.athles.id = 0;
         this.athlesanteForm.setValue({
@@ -39,37 +40,27 @@ export class AthleSanteComponent implements OnInit {
     }
     onFileSelected({ event }: { event: any }) {
         this.selectedFile = event.target.files[0] as File;
+        this.athlesanteForm.patchValue({ file: this.selectedFile });
+        if (this.athlesanteForm.get('file') !== null) {
+            // @ts-ignore
+            this.athlesanteForm.get('file').updateValueAndValidity();
+        }
     }
     onUpload() {
+        console.log(this.selectedFile.name);
         const fd = new FormData();
         fd.append('file', this.selectedFile, this.selectedFile.name);
-       /* this.http.post('', fd).subscribe(res => {
-            console.log(res);
-        });*/
+        fd.append('name', this.selectedFile.name);
+        console.log(fd);
+       /* this.http
+            .post('http://localhost:3000/api/documents', fd, {
+                reportProgress: true,
+                observe: 'events',
+            })
+            .subscribe(res => {
+                console.log('sending');
+                console.log(res);
+            });
+            */
     }
-    onSubmit() {
-        this.json = JSON.stringify(this.athlesanteForm.value);
-        console.log(this.json);
-        // this.http.put('http://localhost:3000/api//' +  this.athles.id, this.json, {
-        //     headers: new HttpHeaders({
-        //         'Content-Type': 'application/json'
-        //     })
-        // })
-        //     .subscribe(responseData => {
-        //         console.log(responseData);
-        //     });
-        this.athlesanteForm.reset();
-    }
-    /*addAthlesante(formulaire: NgForm) {
-        this.athlesanteService1.addathlesante(formulaire.value).subscribe(
-            reponse => {
-                const link = ['ath'];
-                this.router.navigate(link);
-            },
-            error => {
-                this.errorMessage = 'Problème de connexion à votre serveur';
-                console.log(error);
-            }
-        );
-    }*/
 }

@@ -1,8 +1,9 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { MastersService } from '@modules/frontpages/services';
 import { masters } from '@modules/frontpages/models';
+import { MastersService } from '@modules/frontpages/services';
 
 @Component({
     selector: 'sb-masters',
@@ -17,7 +18,11 @@ export class MastersComponent implements OnInit {
     json: any;
     // @ts-ignore
     selectedFile: File = null;
-    constructor(private mastersService1: MastersService, private router: Router) {}
+    constructor(
+        private mastersService1: MastersService,
+        private router: Router,
+        private http: HttpClient
+    ) {}
 
     ngOnInit() {
         this.masterForm = new FormGroup({
@@ -25,6 +30,7 @@ export class MastersComponent implements OnInit {
             description: new FormControl(null, Validators.required),
             nbrpatrtietr: new FormControl(null, Validators.required),
             nbrtotal: new FormControl(null, Validators.required),
+            file: new FormControl(null, { validators: [Validators.required] }),
         });
         this.masterForm.setValue({
             idmas: this.master.idmas,
@@ -48,12 +54,26 @@ export class MastersComponent implements OnInit {
     }
     onFileSelected({ event }: { event: any }) {
         this.selectedFile = event.target.files[0] as File;
+        this.masterForm.patchValue({ file: this.selectedFile });
+        if (this.masterForm.get('file') !== null) {
+            // @ts-ignore
+            this.actuForm.get('file').updateValueAndValidity();
+        }
     }
     onUpload() {
+        console.log(this.selectedFile.name);
         const fd = new FormData();
         fd.append('file', this.selectedFile, this.selectedFile.name);
-        /* this.http.post('', fd).subscribe(res => {
-             console.log(res);
-         });*/
+        fd.append('name', this.selectedFile.name);
+        console.log(fd);
+        this.http
+            .post('http://localhost:3000/api/documents', fd, {
+                reportProgress: true,
+                observe: 'events',
+            })
+            .subscribe(res => {
+                console.log('sending');
+                console.log(res);
+            });
     }
 }
