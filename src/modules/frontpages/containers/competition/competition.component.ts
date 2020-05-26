@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
-  selector: 'sb-competition',
-  templateUrl: './competition.component.html',
-  styleUrls: ['./competition.component.scss']
+    selector: 'sb-competition',
+    templateUrl: './competition.component.html',
+    styleUrls: ['./competition.component.scss']
 })
 export class CompetitionComponent implements OnInit {
 
@@ -13,20 +15,27 @@ export class CompetitionComponent implements OnInit {
     compForm: FormGroup;
     // @ts-ignore
     selectedFile: File = null;
-    constructor() {
-    }
-    ngOnInit(): void {
+    competitions = [];
+    path = 'http://localhost:3000/uploads/';
+    reqUrl = 'http://localhost:3000/api/'
+
+    constructor(private http: HttpClient, public sanitizer: DomSanitizer) {
     }
 
-    onFileSelected({ event }: { event: any }) {
-        this.selectedFile = event.target.files[0] as File;
+    ngOnInit(): void {
+        this.http.get(this.reqUrl + 'competition')
+            .subscribe(comp => {
+                this.competitions = comp as [];
+            });
     }
-    onUpload() {
-        const fd = new FormData();
-        fd.append('file', this.selectedFile, this.selectedFile.name);
-        /* this.http.post('', fd).subscribe(res => {
-             console.log(res);
-         });*/
+
+    onDelete(id: string) {
+        this.http.delete(this.reqUrl + 'competition/' + id)
+            .subscribe(res => {
+                console.log(res);
+                location.reload();
+            });
+
     }
 
 }

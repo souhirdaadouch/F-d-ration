@@ -21,6 +21,7 @@ import * as frontpagesGuards from './guards';
 /* Services */
 import * as frontpagesServices from './services';
 import { IconsModule, MDBBootstrapModule } from 'angular-bootstrap-md';
+import { CompetitionFormComponent } from './containers/competition-form/competition-form.component';
 
 @NgModule({
     imports: [
@@ -35,7 +36,7 @@ import { IconsModule, MDBBootstrapModule } from 'angular-bootstrap-md';
         MDBBootstrapModule,
     ],
     providers: [...frontpagesServices.services, ...frontpagesGuards.guards],
-    declarations: [...frontpagesContainers.containers, ...frontpagesComponents.components],
+    declarations: [...frontpagesContainers.containers, ...frontpagesComponents.components, CompetitionFormComponent],
     exports: [...frontpagesContainers.containers, ...frontpagesComponents.components],
 })
 export class FrontpagesModule {}

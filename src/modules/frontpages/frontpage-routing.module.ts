@@ -11,6 +11,7 @@ import * as frontpagesContainers from './containers';
 
 /* Guards */
 import * as frontpagesGuards from './guards';
+import {CompetitionFormComponent} from "@modules/frontpages/containers/competition-form/competition-form.component";
 /* Routes */
 export const ROUTES: Routes = [
     {
@@ -178,6 +179,22 @@ export const ROUTES: Routes = [
             title: 'Athlétes - SB Admin Angular',
         } as SBRouteData,
     },
+    {
+        path: 'competition/form',
+        canActivate: [],
+        component: CompetitionFormComponent,
+        data: {
+            title: 'FTA - SB Admin Angular',
+        } as SBRouteData,
+    },
+    {
+        path: 'competition/form/:id',
+        canActivate: [],
+        component: CompetitionFormComponent,
+        data: {
+            title: 'FTA - SB Admin Angular',
+        } as SBRouteData,
+    }
 ];
 
 @NgModule({

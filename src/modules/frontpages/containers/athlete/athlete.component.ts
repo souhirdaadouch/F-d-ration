@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { AthleteService } from '@modules/frontpages/services';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {AthleteService} from '@modules/frontpages/services';
 
-import { athlete } from '../../models/athlete.model';
+import {athlete} from '../../models/athlete.model';
 
 @Component({
     selector: 'sb-athlete',
@@ -18,7 +18,8 @@ export class AthleteComponent implements OnInit {
     json: any;
 
     // formulaire: NgForm;
-    constructor(private AthleteService1: AthleteService, private router: Router) {}
+    constructor(private AthleteService1: AthleteService, private router: Router) {
+    }
 
     ngOnInit() {
         this.athleteForm = new FormGroup({
@@ -44,7 +45,7 @@ export class AthleteComponent implements OnInit {
             adresse: new FormControl(null, Validators.required),
             pointure: new FormControl(null, Validators.required),
             Performances: new FormControl(null, Validators.required),
-            PathPerformanceCopiePDF: new FormControl(null, Validators.required),
+            PathPerformanceCopiePDF: new FormControl(null, Validators.required)
         });
     }
 
