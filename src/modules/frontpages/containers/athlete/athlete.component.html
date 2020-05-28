@@ -1,15 +1,15 @@
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-lg-5">
+        <div class="col-lg-8">
             <div class="card shadow-lg border-0 rounded-lg mt-5">
                 <div class="card-header"><h3 class="text-center font-weight-light my-4">Ajout d'athlétes</h3>
                 </div>
                 <div class="card-body">
-                    <form [formGroup]="athleteForm" class="form-theme" (ngSubmit)="onSubmit()">
+                    <form [formGroup]="athleteForm" id="form" class="form-theme" (ngSubmit)="onSubmit()">
                         <div class="row">
                             <div class="col-md-8">
-                                <label for="id">Id</label>
-                                <input required id="id" type="text" formControlName="id" class="form-control">
+                                <label for="id">Numero</label>
+                                <input required id="id" type="text" formControlName="numero" class="form-control">
                             </div>
                         </div>
                         <div class="row">
@@ -27,11 +27,12 @@
                         </div>
                         <div class="row">
                             <div class="col-md-8">
-                                <label>Sexe</label>
-                                <input type="radio" formControlName="sexe" value="H"> Homme
-                                <input type="radio" formControlName="sexe" value="F"> Femme
+                                <label>Sexe</label> <br>
+                                <input type="radio" formControlName="sexe" value="Masculin"> Masculin
+                                <input type="radio" formControlName="sexe" value="Féminin"> Féminin
                             </div>
                         </div>
+                        <br>
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="ddn">Date de naissance</label>
@@ -71,11 +72,11 @@
                         <label>Meilleur Performances</label>
                         <div class="row">
                             <div class="col-md-6">
-                                <input required id="Meilleurperfo1" type="text" formControlName="Meilleurperfo1"
+                                <input required id="Meilleurperfo1" type="text" formControlName="meilleurPerfo1"
                                        value="Meilleurperfo1" class="form-control">
                             </div>
                             <div class="col-md-6">
-                                <input required id="Meilleurperfo2" type="text" formControlName="Meilleurperfo2"
+                                <input required id="Meilleurperfo2" type="text" formControlName="meilleurPerfo2"
                                        value="Meilleurperfo2" class="form-control">
                             </div>
                         </div>
@@ -105,7 +106,7 @@
                             </div>
                             <div class="col-md-6">
                                 <label for="validite">Validité</label>
-                                <input required id="validite" type="text" formControlName="validite"
+                                <input required id="validite" type="text" formControlName="validité"
                                        class="form-control">
                             </div>
                         </div>
@@ -137,13 +138,21 @@
 
                         <div class="row">
                             <div class="col-md-8">
-                                <label for="PathPerformanceCopiePDF">Performance</label>
-                                <input required id="PathPerformanceCopiePDF" type="file"
-                                       formControlName="PathPerformanceCopiePDF"
+                                <label for="image">photo de l'Athlete</label>
+                                <input id="image" type="file"
+                                       (change)="onFileSelected({event : $event})"
                                        class="form-control">
                             </div>
                         </div>
-                        <button [disabled]="!athleteForm.valid" class="btn btn-primary">
+<!--                        <div class="row">-->
+<!--                            <div class="col-md-8">-->
+<!--                                <label for="PathPerformanceCopiePDF">Performance</label>-->
+<!--                                <input required id="PathPerformanceCopiePDF" type="file"-->
+<!--                                       formControlName="PathPerformanceCopiePDF"-->
+<!--                                       class="form-control">-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <button class="btn btn-primary" [disabled]="!athleteForm.valid">
                             Envoyer
                         </button>
 

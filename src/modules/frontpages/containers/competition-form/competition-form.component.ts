@@ -20,8 +20,8 @@ export class CompetitionFormComponent implements OnInit {
     request = 'post';
     json: any;
     filespath = 'http://localhost:3000/uploads/';
-    competition: CompModel = new CompModel();
-    allcomps: CompModel [];
+    competition: CompModel|undefined = new CompModel();
+    allcomps: CompModel [] = [];
 
     constructor(private http: HttpClient, private route: ActivatedRoute) {
     }

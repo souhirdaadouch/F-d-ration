@@ -202,6 +202,14 @@ export const ROUTES: Routes = [
         data: {
             title: 'FTA - SB Admin Angular',
         } as SBRouteData,
+    },
+    {
+        path: 'athlete/:id',
+        canActivate: [],
+        component: frontpagesContainers.AthleteComponent,
+        data: {
+            title: 'Athlétes - SB Admin Angular',
+        } as SBRouteData,
     }
 ];
 

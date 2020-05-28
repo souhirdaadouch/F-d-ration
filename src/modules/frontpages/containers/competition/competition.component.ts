@@ -16,7 +16,7 @@ export class CompetitionComponent implements OnInit {
     selectedFile: File = null;
     competitions = [];
     path = 'http://localhost:3000/uploads/';
-    reqUrl = 'http://localhost:3000/api/'
+    reqUrl = 'http://localhost:3000/api/';
 
     constructor(private http: HttpClient, public sanitizer: DomSanitizer) {
     }
@@ -32,7 +32,10 @@ export class CompetitionComponent implements OnInit {
         this.http.delete(this.reqUrl + 'competition/' + id)
             .subscribe(res => {
                 console.log(res);
-                location.reload();
+                this.http.get(this.reqUrl + 'competition')
+                    .subscribe(comp => {
+                        this.competitions = comp as [];
+                    });
             });
     }
 }
