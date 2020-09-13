@@ -143,7 +143,7 @@ export class AthleteComponent implements OnInit {
                     console.log(res);
                 })
         } else {
-            this.http.post(this.path, fd, {
+            this.http.post(this.path, this.athleteForm.value, {
                 reportProgress: true,
                 observe: 'events'
             })
